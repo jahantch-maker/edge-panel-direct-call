@@ -1,0 +1,48 @@
+name: Build APK
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: 8.9
+
+      - name: Accept Android SDK licenses
+        run: yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
+
+      - name: Build release APK
+        run: gradle assembleRelease --no-daemon --stacktrace
+
+      - name: Name the APK
+        run: cp app/build/outputs/apk/release/app-release.apk EdgePanelDirectCall.apk
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: EdgePanelDirectCall
+          path: EdgePanelDirectCall.apk
+
+      - name: Publish as the "latest" release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete latest --cleanup-tag --yes || true
+          gh release create latest EdgePanelDirectCall.apk \
+            --title "Edge Panel Direct Call (latest build)" \
+            --notes "Download **EdgePanelDirectCall.apk** below and install it on your phone. Build #${{ github.run_number }}, commit ${GITHUB_SHA::7}." \
+            --target "$GITHUB_SHA"

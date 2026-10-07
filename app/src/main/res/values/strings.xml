@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Direct Call</string>
+    <string name="quick_call">Quick Call</string>
+    <string name="edge_description">Your favourite people, one tap away</string>
+    <string name="subtitle_normal">Tap a person to call instantly</string>
+    <string name="subtitle_edit">Tap to edit · hold and drag to reorder</string>
+    <string name="count_fmt">%1$d / %2$d</string>
+    <string name="empty_title">No one here yet</string>
+    <string name="empty_text">Tap the + tile to add the people you call most. Up to 30.</string>
+    <string name="add_contact">Add person</string>
+    <string name="edit_contact">Edit person</string>
+    <string name="add_tile">Add person</string>
+    <string name="name_hint">Name</string>
+    <string name="number_hint">Phone number</string>
+    <string name="pick_contact">Pick from contacts</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+    <string name="done">Done</string>
+    <string name="delete_title">Remove person?</string>
+    <string name="delete_msg">%1$s will be removed from your direct-call list.</string>
+    <string name="err_name">Enter a name</string>
+    <string name="err_number">Enter a phone number</string>
+    <string name="limit_reached">You have reached the limit of 30 people</string>
+    <string name="need_call_permission">Allow phone access so calls can start with one tap</string>
+    <string name="banner_text">Allow phone access so calls start with one tap</string>
+    <string name="allow">Allow</string>
+    <string name="settings">Settings</string>
+    <string name="columns">Columns</string>
+    <string name="lock_title">Lock-screen shortcut</string>
+    <string name="lock_desc">Adds a notification that opens Quick Call from the lock screen, without unlocking</string>
+    <string name="edge_howto_title">Edge panel</string>
+    <string name="edge_howto">Samsung: Settings → Display → Edge panels → tick “Direct Call”. You can also add the Quick Call icon as a lock-screen shortcut.</string>
+    <string name="notif_channel">Quick Call shortcut</string>
+    <string name="notif_text">Tap to call someone</string>
+    <string name="panel_empty">Open Direct Call and add people</string>
+    <string name="panel_help">Tap a person to call them</string>
+</resources>
